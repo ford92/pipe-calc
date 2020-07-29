@@ -1,0 +1,71 @@
+{% extends "calcs/base.html" %}
+
+
+{% block content %}
+
+<h3>Existing Pipe</h3>
+
+  <form method="POST" novalidate>
+  {% csrf_token %}
+<div class="row">
+  <div class="col-3">
+	  <p>Diameter (in mm) {{ form.ex_diameter }}</p>
+  </div>
+  <div class="col-3">
+    <p>Pipe Construction {{ form.ex_construction}}</p>
+  </div>
+  <div class="col-3">
+	  <p>Culvert Length (in m) {{ form.ex_length }}</p>
+  </div>
+</div>
+<div class="row">
+    <div class="col-3">
+	    <p>Inlet IL (in m) {{ form.ex_inlet}}</p>
+    </div>
+    <div class="col-3">
+  	  <p>Outlet IL (in m){{ form.ex_outlet}}</p>
+    </div>
+</div>
+<div class="col-4">
+  <div class="row">
+    <div class="container p-3 my-3 bg-dark text-white" class="col-6">
+      <h6>Flow capacity = {{ output_1 }} l/s</h6>
+    </div>
+  </div>
+</div>
+
+
+<h3>Proposed Pipe</h3>
+
+<div class="row">
+  <div class="col-3">
+    <p>Diameter (in mm) {{ form.pro_diameter}}</p>
+  </div>
+  <div class="col-3">
+	  <p>Pipe Construction {{ form.pro_construction}}</p>
+  </div>
+  <div class="col-3">
+	  <p>Culvert Length (in m){{ form.pro_length}}</p>
+	</div>
+</div>
+<div class="row">
+  <div class="col-3">
+    <p>Inlet IL (in m) {{ form.pro_inlet }}</p>
+  </div>
+  <div class="col-3">
+  <p>Outlet IL (in m) {{ form.pro_outlet }}</p>
+  </div>
+</div>
+<div class="col-4">
+  <div class="row">
+    <div class="container p-3 my-3 bg-dark text-white" class="col-6">
+      <h6>Flow capacity = {{ output_2 }} l/s</h6>
+    </div>
+  </div>
+</div>
+<input type="submit" name="submitform" value ="Calculate">
+
+</form>
+
+{% endblock content %} 
+
